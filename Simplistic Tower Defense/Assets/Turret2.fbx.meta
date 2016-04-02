@@ -1,21 +1,24 @@
 fileFormatVersion: 2
-guid: 0b5f1cf2e13c03843a9f2849596a8a91
-timeCreated: 1458052411
+guid: ea92e414f32e48e4584f732817af2c87
+timeCreated: 1459596913
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Camera
-    100002: Lamp
-    100004: Plane
+    100000: Base
+    100002: Camera
+    100004: Cube
     100006: //RootNode
-    400000: Camera
-    400002: Lamp
-    400004: Plane
+    400000: Base
+    400002: Camera
+    400004: Cube
     400006: //RootNode
-    2300000: Plane
-    3300000: Plane
-    4300000: Plane
+    2300000: Base
+    2300002: Cube
+    3300000: Base
+    3300002: Cube
+    4300000: Cube
+    4300002: Base
   materials:
     importMaterials: 1
     materialName: 0
