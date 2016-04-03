@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour {
 	public float damage = 1f;
 	public float radius = 0;
 
+    public GameObject explosion;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -59,8 +61,8 @@ public class Bullet : MonoBehaviour {
 			}
 		}
 
-		// TODO: Maybe spawn a cool "explosion" object here?
-
+        // TODO: Maybe spawn a cool "explosion" object here?
+        Instantiate(explosion, transform.position, transform.rotation);
 		Destroy(gameObject);
 	}
 }
