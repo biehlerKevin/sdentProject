@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemySpawner : MonoBehaviour {
 
     float spawnCooldown = 0.4f;
-    float spawnCooldownRemaining = 5f;
+    float spawnCooldownRemaining = 2f;
 
 
     [System.Serializable]
