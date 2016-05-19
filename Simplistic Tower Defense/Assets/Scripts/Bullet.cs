@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour {
 
 	public float speed = 15f;
 	public Transform target;
-	public float damage = 1f;
+    public float damage;
 	public float radius = 0;
 
     public AudioClip sound;
@@ -68,13 +68,14 @@ public class Bullet : MonoBehaviour {
         Instantiate(explosion, transform.position, transform.rotation);
 
         StartCoroutine(Waiting());
+        Destroy(gameObject);
 
-	}
+    }
 
     IEnumerator Waiting()
     {
         audio.PlayOneShot(audio.clip, 1.0f);
         yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+
     }
 }

@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour {
 
     public Text moneyText;
     public Text livesText;
+    internal static object setLastS;
 
     public void LoseLife(int l = 1)
     {
@@ -32,6 +33,8 @@ public class ScoreManager : MonoBehaviour {
         //TODO: This doesn't actually need to update the text every frame
         moneyText.text = "Money: $" + money.ToString();
         livesText.text = "Lives:  " + lives.ToString();
+
+
     }
 
 }

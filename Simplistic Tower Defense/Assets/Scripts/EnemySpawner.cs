@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour {
 
-    float spawnCooldown = 0.4f;
-    float spawnCooldownRemaining = 2f;
+    public float spawnCooldown = 0.5f;
+    public float spawnCooldownRemaining = 3f;
 
 
     [System.Serializable]
@@ -26,6 +27,7 @@ public class EnemySpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         spawnCooldownRemaining -= Time.deltaTime;
         if(spawnCooldownRemaining < 0)
         {
@@ -45,7 +47,7 @@ public class EnemySpawner : MonoBehaviour {
                     break;
                 }
             }
-
+            
             if (didSpawn == false)
             {
                 //Wave must be complete
@@ -54,14 +56,23 @@ public class EnemySpawner : MonoBehaviour {
                 {
                     transform.parent.GetChild(1).gameObject.SetActive(true);
                 }
+                else if(transform.parent.childCount == 1)
+                {
+                    //End Game after last spawner, should not contain any enemies
+                    SceneManager.LoadScene(0);
+                }
                 else
                 {
                     //That was last wave
                     //Instead of Destroying, set them inactive, then maybe restart at first one with double HP values
+
                 }
                 transform.SetParent(null);
                 Destroy(gameObject);
+
             }
         }
 	}
+
+
 }
