@@ -10,10 +10,10 @@ public class Tower : MonoBehaviour {
 
     public int cost = 5;
 
-    float fireCooldown = 0.5f;
+    public float fireCooldown = 0.5f;
     float fireCooldownLeft = 0;
 
-    public float damage = 1f;
+    public float damage = 0f;
     public float radius = 0f;
 
 	// Use this for initialization
@@ -23,7 +23,6 @@ public class Tower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //TODO: Optimize this
         Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
 
         Enemy nearestEnemy = null;
@@ -59,7 +58,7 @@ public class Tower : MonoBehaviour {
 
     void ShootAt(Enemy e)
     {
-        //TODO: Fire out the tip!
+        //TODO: Really fire out of the barrel of the tower
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
 
         Bullet b = bulletGO.GetComponent<Bullet>();

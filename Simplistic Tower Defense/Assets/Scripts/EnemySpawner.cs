@@ -49,7 +49,6 @@ public class EnemySpawner : MonoBehaviour {
             if (didSpawn == false)
             {
                 //Wave must be complete
-                //TODO: Instantiate next wave object
 
                 if (transform.parent.childCount > 1)
                 {
@@ -58,7 +57,7 @@ public class EnemySpawner : MonoBehaviour {
                 else
                 {
                     //That was last wave
-                    //Instead of Destroying, set them inactive, then restart at first one with double HP values
+                    //Instead of Destroying, set them inactive, then maybe restart at first one with double HP values
                 }
                 transform.SetParent(null);
                 Destroy(gameObject);

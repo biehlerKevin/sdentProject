@@ -8,12 +8,15 @@ public class Bullet : MonoBehaviour {
 	public float damage = 1f;
 	public float radius = 0;
 
+    public AudioClip sound;
+    AudioSource audio;
+
     public GameObject explosion;
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+        audio = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -63,6 +66,15 @@ public class Bullet : MonoBehaviour {
 
         // TODO: Maybe spawn a cool "explosion" object here?
         Instantiate(explosion, transform.position, transform.rotation);
-		Destroy(gameObject);
+
+        StartCoroutine(Waiting());
+
 	}
+
+    IEnumerator Waiting()
+    {
+        audio.PlayOneShot(audio.clip, 1.0f);
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+    }
 }

@@ -56,11 +56,13 @@ public class Enemy : MonoBehaviour {
 		}
 		else
 		{
-            //TODO: Consider ways to smooth motion
 			//Move towrds node
 			transform.Translate(dir.normalized * distThisFrame, Space.World);
-            Quaternion targetRotation = Quaternion.LookRotation(dir);
-            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, targetRotation, Time.deltaTime * 5);
+            this.transform.Rotate(Vector3.up * Time.deltaTime * 200); //Rotate the enemies during movement
+
+            //To Position the Rotation so that the enemies are facing the next node
+            //Quaternion targetRotation = Quaternion.LookRotation(dir);
+            //this.transform.rotation = Quaternion.Lerp(this.transform.rotation, targetRotation, Time.deltaTime * 5);
 
         }
 	}
@@ -82,7 +84,6 @@ public class Enemy : MonoBehaviour {
 
     public void Die()
     {
-        //TODO: Do this more safely
         GameObject.FindObjectOfType<ScoreManager>().money += moneyValue;
         Destroy(gameObject);
     }
